@@ -10,7 +10,18 @@ function App() {
 
   let calcTax = (e) => {
     e.preventDefault();
+    if (netincome === '' || deductions === ''){
+      alert('Please enter valid data')
+    }else{
+       let income = (netincome - deductions)
+       setIncome(income.toFixed(1))
+       
+       if(income > 250000 && income <= 500000){
+        setResult(income *(5/100))
+       }
 
+    }
+  
   
   }
   return (
