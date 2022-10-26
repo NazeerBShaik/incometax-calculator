@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/incometax-calculator/static/css/main.d6790405.css",
-    "main.js": "/incometax-calculator/static/js/main.613d385c.js",
+    "main.css": "/incometax-calculator/static/css/main.beee8d77.css",
+    "main.js": "/incometax-calculator/static/js/main.14fd64fd.js",
     "static/js/787.993dfd56.chunk.js": "/incometax-calculator/static/js/787.993dfd56.chunk.js",
     "static/media/video.mp4": "/incometax-calculator/static/media/video.ec7c9f4475a2d2997931.mp4",
     "index.html": "/incometax-calculator/index.html",
-    "main.d6790405.css.map": "/incometax-calculator/static/css/main.d6790405.css.map",
-    "main.613d385c.js.map": "/incometax-calculator/static/js/main.613d385c.js.map",
+    "main.beee8d77.css.map": "/incometax-calculator/static/css/main.beee8d77.css.map",
+    "main.14fd64fd.js.map": "/incometax-calculator/static/js/main.14fd64fd.js.map",
     "787.993dfd56.chunk.js.map": "/incometax-calculator/static/js/787.993dfd56.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d6790405.css",
-    "static/js/main.613d385c.js"
+    "static/css/main.beee8d77.css",
+    "static/js/main.14fd64fd.js"
   ]
 }
