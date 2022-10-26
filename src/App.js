@@ -6,47 +6,101 @@ function App() {
   const [netincome, setNetincome] = useState('');
   const [deductions, setDeductions] = useState('');
   const [income, setIncome] = useState('');
-  const [result, setResult] = useState('');
+  const [oldResult, setOldResult] = useState('');
+  const [newResult, setNewResult] = useState('');
 
-  let calcTax = (e) => {
-    e.preventDefault();
-
+       
+  let calcTaxOld = () => {
+    
+  
     if (netincome === 0 || deductions === 0){
       alert('Please enter valid data')
     }else{
       let income = (netincome - deductions)
       setIncome(income.toFixed(1))
-       
+        
+    if(income <= 250000){
+      setOldResult(0)
+      console.log(oldResult);
+
+    }else if(income > 250000 && income <= 500000){
+      setOldResult((250000-income)*(5/100))
+      console.log(oldResult);
+
+    }else if(income > 500000 && income <= 1000000){
+      setOldResult(12500 + (income-500000)*(20/100))
+      console.log(oldResult);
+
+    }else if(income > 1000000){
+      setOldResult(102500 + (income-1000000)*(30/100))
+      console.log(oldResult);
+    }    
+  }}
+
+  let calcTaxNew = () => {
+    
+
+    if (netincome === 0 || deductions === 0){
+      alert('Please enter valid data')
+    }else{
+      let income = (netincome - 0)
+      setIncome(income.toFixed(1))
+
       if(income <= 250000){
-      setResult(0)
+        setNewResult(0)
+        console.log(newResult);
+
       }else if(income > 250000 && income <= 500000){
-      setResult((250000-income)*(5/100)) 
+        setNewResult((income-250000)*(5/100)) 
+        console.log(newResult);
+
       }else if(income > 500000 && income <= 750000){
-        setResult((250000-income)*(5/100) + (500000-income)*(10/100))
+        setNewResult(12500 + (income-500000)*(10/100))
+        console.log(newResult);
+
       }else if(income > 750000 && income <= 1000000){
-        setResult((250000-income)*(5/100) + (500000-income)*(10/100) + (750000-income)*(15/100))
+        setNewResult(37500 + (income-750000)*(15/100))
+        console.log(newResult);
+
       }else if(income > 1000000 && income <= 1250000){
-        setResult((250000-income)*(5/100) + (500000-income)*(10/100) + (750000-income)*(15/100) + (1000000-income)*(20/100))
+        setNewResult(75000 + (income-1000000)*(20/100))
+        console.log(newResult);
+
       }else if(income > 1250000 && income <= 1500000){
-        setResult((250000-income)*(5/100) + (500000-income)*(10/100) + (750000-income)*(15/100) + (1000000-income)*(20/100) + (1250000-income)*(25/100))   
+        setNewResult(125000 + (income-1250000)*(25/100))   
+        console.log(newResult);
+
       }else if(income > 1500000){
-        setResult((250000-income)*(5/100) + (500000-income)*(10/100) + (750000-income)*(15/100) + (1000000-income)*(20/100) + (1250000-income)*(25/100) + (1500000-income)*(30/100))   
+        setNewResult(187500 + (income-1500000)*(30/100))   
+        console.log(newResult);
+
       }
     }
+
+    
+  }
   
+  let submit = (e)=>{
+    e.preventDefault();
+
+    calcTaxNew();
+    calcTaxOld();
   }
   const f1=()=>setNetincome('');
   const f2=()=>setDeductions('');
   const f3=()=>setIncome('');
-  const f4=()=>setResult('');
-  
+  const f4=()=>newResult('');
+  const f5=()=>oldResult('');
+
   return (
     <div className='main'>
       <div className="overlay"></div>
       <video src={video} autoPlay loop muted />
       <div className='content'>
         <div>
-          <form className='form-container' onSubmit={calcTax} >
+          <form className='form-container' onSubmit={
+              submit
+            } >
             <legend>Tax Calculator</legend>
             <label>Estimated Annual Income </label>
             <input type="number" value={netincome} onChange={(e) => setNetincome(e.target.value)}></input>
@@ -55,10 +109,18 @@ function App() {
             <button className='submit-btn' type='submit'>Submit</button>
           </form>
         </div>
-        <div>
-          <h4>Tax payable Income :{income}</h4>
-          <h4>Income Tax :{result}</h4>
-          <button className='submit-btn' type='submit' onClick={()=>{f1();f2();f3();f4()}}>Reload</button>
+        <div className='result'>
+          <h6>Net Tax payable Income :</h6>
+          <h6>{income}</h6>
+          <h6>Income Tax For Old Slab Rate:</h6>
+          <h6>{oldResult}</h6>
+          <h6>Income Tax For New Slab Rate:</h6>
+          <h6>{newResult}</h6>
+
+          <button className='submit-btn' type='submit' 
+          onClick={()=>{f1();f2();f3();f4();f5()}}
+          
+          >Reload</button>
         </div>
       </div>
     </div>  

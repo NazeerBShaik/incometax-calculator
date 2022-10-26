@@ -88,17 +88,18 @@ legend{
   margin-bottom: 30px;
   
 }
-h2{
+h6{
   position :relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  margin-left: 5px;
 }
 .result{
   position:relative;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   flex-direction: column;
 }
