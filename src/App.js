@@ -24,7 +24,7 @@ function App() {
       console.log(oldResult);
 
     }else if(income > 250000 && income <= 500000){
-      setOldResult((250000-income)*(5/100))
+      setOldResult((income-250000)*(5/100))
       console.log(oldResult);
 
     }else if(income > 500000 && income <= 1000000){
