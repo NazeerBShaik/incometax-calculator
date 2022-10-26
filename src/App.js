@@ -89,8 +89,8 @@ function App() {
   const f1=()=>setNetincome('');
   const f2=()=>setDeductions('');
   const f3=()=>setIncome('');
-  const f4=()=>newResult('');
-  const f5=()=>oldResult('');
+  const f4=()=>setNewResult('');
+  const f5=()=>setOldResult('');
 
   return (
     <div className='main'>
