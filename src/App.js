@@ -15,7 +15,7 @@ function App() {
   
     if (netincome === 0 || deductions === 0){
       alert('Please enter valid data')
-    }else if(){
+    
 
     }
     else{
