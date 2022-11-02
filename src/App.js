@@ -12,7 +12,7 @@ function App() {
   let calcTaxOld = () => {
     
     if (netincome === '' || deductions === ''){
-      alert('Please enter valid data')
+      return null;
     }
     else{
       let income = (netincome - deductions)
@@ -40,7 +40,7 @@ function App() {
   let calcTaxNew = () => {
     
     if (netincome === '' || deductions === ''){
-      alert('Please enter valid data')
+      return null;
     }else{
       let income = (netincome - 0)
       setIncome(income.toFixed(1))
@@ -76,10 +76,18 @@ function App() {
     }
   }
   
+  const validation = () => {
+    if(netincome === 0 && deductions === 0){
+      alert("Enter valid data before you submit")
+    }else if(netincome < 250000 ){
+      alert("No need to pay tax for this amount of income ")
+    }
+  }
   
   let submit = async (e)=>{
     e.preventDefault();
      
+    validation();
     calcTaxNew();
     calcTaxOld();
   }
@@ -99,9 +107,9 @@ function App() {
           <form className='form-container' onSubmit={submit} >
             <legend>Tax Calculator</legend>
             <label>Total Annual Income </label>
-            <input type="number" value={netincome} onChange={(e) => setNetincome(e.target.value)}></input>
+            <input type="number" value={netincome} onChange={(e) => setNetincome(e.target.value)} required></input>
             <label>Total: Exemptions/Deductions</label>
-            <input type="number" value={deductions} onChange={(e) => setDeductions(e.target.value)}></input>
+            <input type="number" value={deductions} onChange={(e) => setDeductions(e.target.value)} required></input>
             <button className='submit-btn' type='submit'>Submit</button>
           </form>
         </div>
