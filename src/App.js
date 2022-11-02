@@ -27,15 +27,15 @@ function App() {
       console.log(oldResult);
 
     }else if(income > 250000 && income <= 500000){
-      setOldResult((income-250000)*(9/100))
+      setOldResult(((income-250000)*(5/100))+((income-250000)*(5/100))*(4/100))
       console.log(oldResult);
 
     }else if(income > 500000 && income <= 1000000){
-      setOldResult(12500 + (income-500000)*(24/100))
+      setOldResult((12500 + (income-500000)*(20/100))+(12500 + (income-500000)*(20/100))*(4/100))
       console.log(oldResult);
 
     }else if(income > 1000000){
-      setOldResult(102500 + (income-1000000)*(34/100))
+      setOldResult((102500 + (income-1000000)*(30/100))+(102500 + (income-1000000)*(30/100))*(4/100))
       console.log(oldResult);
     }    
   }}
@@ -54,27 +54,27 @@ function App() {
         console.log(newResult);
 
       }else if(income > 250000 && income <= 500000){
-        setNewResult((income-250000)*(9/100)) 
+        setNewResult((income-250000)*(5/100)+((income-250000)*(5/100))*(4/100)) 
         console.log(newResult);
 
       }else if(income > 500000 && income <= 750000){
-        setNewResult(12500 + (income-500000)*(14/100))
+        setNewResult(12500 + (income-500000)*(10/100)+(12500 + (income-500000)*(10/100))*(4/100))
         console.log(newResult);
 
       }else if(income > 750000 && income <= 1000000){
-        setNewResult(37500 + (income-750000)*(19/100))
+        setNewResult(37500 + (income-750000)*(15/100)+(37500 + (income-750000)*(15/100))*(4/100))
         console.log(newResult);
 
       }else if(income > 1000000 && income <= 1250000){
-        setNewResult(75000 + (income-1000000)*(24/100))
+        setNewResult(75000 + (income-1000000)*(20/100)+(75000 + (income-1000000)*(20/100))*(4/100))
         console.log(newResult);
 
       }else if(income > 1250000 && income <= 1500000){
-        setNewResult(125000 + (income-1250000)*(29/100))   
+        setNewResult(125000 + (income-1250000)*(25/100)+(125000 + (income-1250000)*(25/100))*(4/100))   
         console.log(newResult);
 
       }else if(income > 1500000){
-        setNewResult(187500 + (income-1500000)*(34/100))   
+        setNewResult(187500 + (income-1500000)*(30/100)+(187500 + (income-1500000)*(30/100))*(4/100))   
         console.log(newResult);
 
       }
@@ -119,7 +119,8 @@ function App() {
           <h6>{oldResult}</h6>
           <h6>Income Tax For New Slab Rate:</h6>
           <h6>{newResult}</h6>
-
+          <h6>Tax Benefit in Old Slab : </h6>
+          <h6>{newResult-oldResult}</h6>
           <button className='submit-btn' type='submit' 
           onClick={()=>{f1();f2();f3();f4();f5()}}
           
