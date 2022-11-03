@@ -111,18 +111,18 @@ function App() {
             <label>Total: Exemptions/Deductions</label>
             <input type="number" value={deductions} onChange={(e) => setDeductions(e.target.value)} required></input>
             <button className='submit-btn' type='submit'>Submit</button>
+            <div className='result'>
+              <h6>Net Tax payable Income</h6>
+              <h6>{income}</h6>
+              <h6>Income Tax For Old Slab Rate</h6>
+              <h6>{oldResult}</h6>
+              <h6>Income Tax For New Slab Rate</h6>
+              <h6>{newResult}</h6>
+              <button className='submit-btn' type='submit' 
+              onClick={()=>{f1();f2();f3();f4();f5()}}
+              >Reload</button>
+            </div>
           </form>
-        </div>
-        <div className='result'>
-          <h6>Net Tax payable Income</h6>
-          <h6>{income}</h6>
-          <h6>Income Tax For Old Slab Rate</h6>
-          <h6>{oldResult}</h6>
-          <h6>Income Tax For New Slab Rate</h6>
-          <h6>{newResult}</h6>
-          <button className='submit-btn' type='submit' 
-          onClick={()=>{f1();f2();f3();f4();f5()}}
-          >Reload</button>
         </div>
       </div>
     </div>  
